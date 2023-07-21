@@ -25,7 +25,8 @@ def tr(x,y):
 
 v1 = np.array([[10,0,1.0],[0,10,1.0],[10,10,1.0]]).T
 
-th = 0.3
+#th = np.linspace(0,1.57,5)
+th = np.linspace(0,0.5,5)
 vd1 = np.dot(v1[:,0],rotZ(th))
 vd2 = np.dot(v1[:,1],rotZ(th))
 vd3 = np.dot(v1[:,2],rotZ(th))
