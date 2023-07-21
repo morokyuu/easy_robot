@@ -23,21 +23,24 @@ def tr(x,y):
         ])
 
 
-v1 = np.array([[10,0,1.0],[0,10,1.0],[10,10,1.0]]).T
+l1 = 12
+l2 = 8
+l3 = 5
 
-#th = np.linspace(0,1.57,5)
-th = np.linspace(0,0.5,5)
-vd1 = np.dot(v1[:,0],rotZ(th))
-vd2 = np.dot(v1[:,1],rotZ(th))
-vd3 = np.dot(v1[:,2],rotZ(th))
+th1 = np.linspace(0, 1.57, 10)
+th2 = 0.9
+R01 = np.dot(rotZ(th1),tr(l1,0))
+R12 = np.dot(rotZ(th2),tr(l2,0))
+
+p0 = np.array([0,0,1])
+p1 = np.dot(R01,p0)
+p2 = np.dot(np.dot(R01,R12),p0)
 
 
 fig,ax = plt.subplots(figsize = (5, 5))
-
-ax.scatter(v1[0],v1[1])
-ax.scatter(vd1[0],vd1[1])
-ax.scatter(vd2[0],vd2[1])
-ax.scatter(vd3[0],vd3[1])
+ax.scatter(0,0)
+ax.scatter(p1[0],p1[1])
+ax.scatter(p2[0],p2[1])
 
 # 軸ラベルの設定
 ax.set_xlabel("x", fontsize = 16)
